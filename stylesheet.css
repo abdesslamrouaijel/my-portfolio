@@ -62,7 +62,7 @@ body {
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: url("assets/bg.jpg") no-repeat center/cover;
+    background: url("bg.jpg") no-repeat center/cover;
     display: flex;
     align-items: center;
     padding: 70px 10% 0;
@@ -760,6 +760,7 @@ section {
     0% { transform: translateY(20px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
+
 
 
 
