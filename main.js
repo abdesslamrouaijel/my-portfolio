@@ -4,11 +4,11 @@ var typed = new Typed(".text", {
         "future AI engineer",
         "Data Science enthusiast",
         "AI practitioner",
-        "problem solver",
-        "robotics enthusiast"
+        "Intelligent Systems Engineer",
     ],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 600,
     loop: true
 });
+
