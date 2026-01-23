@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body>
+    <canvas id="neural-net-bg"></canvas>
     <div class="animation-area">
         <ul class="box-area">
             <li></li>
@@ -25,7 +26,7 @@
         <i class='bx bx-menu' id="menu-icon"></i>
 
         <nav class="navbar">
-            <a href="#home" style="--i:1" class="active">Home</a>
+            <a href="#home" style="--i:1">Home</a>
             <a href="#about" style="--i:2">About</a>
             <a href="#services" style="--i:3">Skill</a>
             <a href="#portfolio" style="--i:4">Portfolio</a>
@@ -37,9 +38,11 @@
         <h3>Hello, It's Me</h3>
         <h1>Abdesslam Rouaijel</h1>
         <h3>And I'm a <span class="text"></span></h3>
-        <p>I'm an engineering student specializing in AI and Robotics.
-           <br>I enjoy creating machine learning models and practical AI solutions.
-        </p>
+        <p>
+   Engineering student specializing in the intersection of <span>AI and Robotics</span>. 
+   <br>I design and deploy intelligent systems, turning complex data into practical, autonomous solutions.
+</p>
+
 
         <div class="home-sci">
     <a href="https://github.com/abdesslamrouaijel" target="_blank" style="--i:1">
@@ -373,7 +376,136 @@ Feel free to reach out</p>
 
 
 <script src="main.js"></script>
+<script>// Select the icon and the navigation menu elements
+    let menuIcon = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    // Add an event listener to the icon
+    menuIcon.onclick = () => {
+        // This toggles the 'active' class on the navbar when clicked
+        navbar.classList.toggle('active');
+    }
+</script>
+<script>
+    // Select all the navigation links
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    // Loop through each link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            // 1. Remove 'active' class from currently active link
+            navLinks.forEach(nav => nav.classList.remove('active'));
+
+            // 2. Add 'active' class to the clicked link
+            this.classList.add('active');
+        });
+    });
+</script>
+<script>const canvas = document.getElementById('neural-net-bg');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const particleCount = 100;
+const connectionDistance = 180;
+const purpleColor = '180, 100, 255'; // Matching your purple border
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resize);
+resize();
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 3;
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${purpleColor}, 0.8)`;
+        ctx.fill();
+    }
+}
+
+function init() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(${purpleColor}, ${1 - distance / connectionDistance})`;
+                ctx.lineWidth = 1.0;
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+</script>
+<script>window.onscroll = () => {
+    // 1. Remove mobile menu on scroll
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+
+    // 2. Sticky Header effect: Add background when scrolling
+    let header = document.querySelector('.header');
+    header.classList.toggle('sticky', window.scrollY > 100);
+
+    // 3. Active Link Highlight (Stylish UX)
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('header nav a');
+
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if(top >= offset && top < offset + height) {
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            });
+        };
+    });
+};
+</script>
+
 
 </body>
 </html>
-
