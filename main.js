@@ -14,10 +14,15 @@ window.onscroll = () => {
 };
 
 // Your existing Typed.js code
+
 var typed = new Typed(".text", {
-    strings: ["future AI engineer", "Data Science enthusiast", "AI practitioner"],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 600,
-    loop: true
+    strings: ["Robotics Engineer", "Data Scientist", "ML Practitioner"],
+    typeSpeed: 70,       // Slightly faster for a professional feel
+    backSpeed: 40,        // Slower backspace looks more natural
+    backDelay: 1500,      // Wait longer before deleting so people can read it
+    startDelay: 500,      // Small pause before it starts
+    loop: true,
+    showCursor: true,     // Essential for the "terminal" AI look
+    cursorChar: '|',
+    autoInsertCss: true,
 });
