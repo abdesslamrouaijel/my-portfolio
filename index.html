@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body>
+    <div id="magnifier"></div>
     <canvas id="neural-net-bg"></canvas>
     <div class="animation-area">
         <ul class="box-area">
@@ -505,7 +506,34 @@ animate();
     });
 };
 </script>
+<script>
+    const magnifier = document.getElementById('magnifier');
+const zoomLevel = 2; // Adjust for more/less zoom
+
+document.addEventListener('mousemove', (e) => {
+    magnifier.style.display = 'block';
+    
+    // Position the lens centered on the cursor
+    const x = e.clientX;
+    const y = e.clientY;
+    magnifier.style.left = `${x - 100}px`;
+    magnifier.style.top = `${y - 100}px`;
+
+    // Modern trick: use a screenshot of the page or the element's background
+    // For a simple version that works on the whole body:
+    magnifier.style.backgroundImage = `url(your-page-screenshot.png)`; // Optional: see note below
+    
+    /* 
+       Note: To literally zoom "live" content like text and AI backgrounds in 2026, 
+       the most performant method is using 'backdrop-filter'.
+    */
+    magnifier.style.backdropFilter = `blur(0px) contrast(1.1)`; // Keep it sharp
+    magnifier.style.transform = `scale(${zoomLevel})`; 
+});
+
+</script>
 
 
 </body>
 </html>
+
