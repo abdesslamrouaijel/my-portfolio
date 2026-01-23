@@ -8,24 +8,42 @@
 
 /* Styles pour le corps de la page */
 body {
-    color: #ededed;
-    background: #081b29;
+    color: #ededed !important;
+    background: #081b29; /* Base dark color */
+    margin: 0;
+    overflow-x: hidden;
 }
 
 /* Styles pour l'en-tête (header) */
 .header {
-    position: fixed;           /* garde le header fixe lors du scroll */
-    top: 0;                    /* en haut de la page */
-    left: 0;
-    width: 100%;               /* occupe toute la largeur */
-    padding: 20px 10%;
-    background: rgba(32, 34, 66, 0.7); /* fond semi-transparent pour rendre le texte lisible */
+    flex-wrap: nowrap;
+    /* Consolidate width properties */
+    width: auto;
+    max-width: 95%;      
+    min-width: max-content; /* THIS is the one that works best for non-wrapping */
+    gap: 30px; /* Increased gap slightly for better spacing */
+    position: fixed;
+    top: 20px;                 
+    left: 50%;
+    transform: translateX(-50%); 
+    
+    padding: 15px 40px;
+    
+    /* The Glassmorphism Effect */
+    background: rgba(32, 34, 66, 0.4); 
+    backdrop-filter: blur(15px);       
+    -webkit-backdrop-filter: blur(15px); 
+    
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 50px;                
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); 
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;              /* au-dessus de tout le contenu */
+    z-index: 1000;
+    transition: all 0.4s ease;
 }
-
 
 /* Styles pour le logo */
 .logo {
@@ -41,17 +59,53 @@ body {
 
 /* Navbar links */
 .navbar a {
-  display: inline-block;
-  font-size: 25px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 35px;
-  transition: .3s;
-  opacity: 0;
-  animation: slideTop .5s ease forwards;
-  animation-delay: calc(.2s * var(--i));
+    position: relative;
+    text-transform: uppercase; /* Standard for 2026 sleek navbars */
+    letter-spacing: 1px;
 }
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0ef; /* Your cyan theme color */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.logo {
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.5); /* Modern "glow" logo */
+}
+
+.navbar a {
+    display: inline-block;
+    /* CRITICAL Fixes below: */
+    flex-shrink: 0;            /* Prevents browser from making links too narrow */
+    white-space: nowrap;       /* Prevents "My Portfolio" from breaking into two lines */
+    
+    font-size: 18px;           
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 25px; /* Slightly reduced margin to save space */
+    padding: 8px 15px;         
+    border-radius: 20px;
+    transition: .3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.navbar a:hover, .navbar a.active {
+    color: #0ef;
+    background: rgba(0, 238, 255, 0.1); /* Subtle glow behind the text */
+}
+
 .navbar a:hover {
     color: #0ef; /* Couleur bleu clair */
 }
@@ -62,15 +116,17 @@ body {
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: none;
+    background: rgba(8, 27, 41, 0.85); /* Add dark overlay here */
     display: flex;
     align-items: center;
-    padding: 70px 10% 0;
-    
+    padding: 120px 10% 0;
 }
 
 .home-content {
     max-width: 600px;
+    flex-grow: 1;      /* Allows it to grow and fill available space */
+    flex-shrink: 1;    /* Allows it to shrink if needed */
+    min-width: 0; 
 }
 .home-content h3 .text {
     font-size: 32px;   /* tu peux ajuster : 28px, 30px, 32px… */
@@ -163,15 +219,17 @@ body {
 
 /* Profile image */
 .profile-img {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid #a259ff; /* Purple border */
     box-shadow: 0 0 40px #a259ff; /* Purple glow */
     display: flex;
+    max-width: 50%;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
     margin-left: 50px; /* space between text & image */
 }
 
@@ -203,6 +261,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 1.5rem;
+    background: rgba(8, 27, 41, 0.85); /* Add dark overlay here */
+    padding: 70px 10%; /* Ensure about section has padding/height */
 }
 
 
@@ -233,6 +293,7 @@ body {
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
+    background: rgba(8, 27, 41, 0.85); /* Add dark overlay here */
 }
 
 .sub-title {
@@ -327,6 +388,7 @@ section {
     height: auto;
     padding: 75px 90px;
     margin: 0 auto;
+    background: rgba(8, 27, 41, 0.85); /* Add dark overlay here */
 }
 
 .heading1 {
@@ -441,9 +503,13 @@ section {
 
 /* Container des cercles */
 .radial-bars {
+    background: none;
+    border: none;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 50%;
+    overflow: visible;
     justify-content: space-evenly;
     gap: 30px; /* espace entre les cercles */
     margin-top: 40px;
@@ -455,12 +521,13 @@ section {
     height: 220px;
     text-align: center;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 /* SVG centré */
 .radial-bar svg {
-    width: 150px;
-    height: 150px;
+    display: block;
+    border-radius: 50%;
 }
 
 /* Cercle gris de fond */
@@ -490,6 +557,10 @@ section {
 
 /* Percentage style */
 .percentage {
+    display: inline-block;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    background: none;
+    padding: 0;
     position: absolute;
     top: 70px;
     left: 0;
@@ -497,6 +568,12 @@ section {
     font-size: 22px;
     font-weight: bold;
     color: #fff;
+}
+.percentage:hover {
+    color: #00eaff;
+    text-shadow: 
+        0 0 8px rgba(0, 234, 255, 0.8),
+        0 0 16px rgba(0, 234, 255, 0.6);
 }
 
 .text {
@@ -782,27 +859,29 @@ section {
 /* For Mobile / Tablets (Max 768px) */
 @media (max-width: 768px) {
     #menu-icon {
-        display: block;
-        font-size: 35px;
-        color: #fff;
-        cursor: pointer;
-    }
-
+    display: none; /* Hide icon on laptops/desktops */
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+}
     .navbar {
-        position: absolute;
-        top: 100%;
-        left: -100%; /* Hidden by default */
-        width: 100%;
-        padding: 1rem 3%;
-        background: rgba(32, 34, 66, 0.95);
-        transition: .3s ease;
-    }
+    display: flex;
+    flex-wrap: nowrap;         /* Ensures the links inside stay in one row */
+    white-space: nowrap;       /* Prevents multi-word links from breaking lines */
+    align-items: center;
+}
 
     .navbar.active { left: 0; } /* Show menu when clicked */
 
     .navbar a {
-        display: block;
-        font-size: 20px;
+        display: inline-block;
+        white-space: nowrap;
+
+        flex-shrink: 0;      /* Prevents links from "shrinking" to fit a small space */
+        font-size: 18px;
+        margin-left: 25px;   /* Slightly reduced margin to save space */
+        padding: 8px 12px;
+        font-size: 17px;
         margin: 20px 0;
     }
 
@@ -818,6 +897,7 @@ section {
         margin-left: 0;
         width: 250px;
         height: 250px;
+        max-width: 50%;
     }
 
     .about {
@@ -846,15 +926,19 @@ section {
 
 /* --- Background Animation Styles --- */
 .animation-area {
-    background: transparent; /* Your body background color (#081b29) shows through */
-    width: 100%;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1; /* Ensures it stays behind all content */
-    overflow: hidden; /* Keeps circles within the viewport */
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Placed behind the content, on top of the canvas */
+    background: transparent; /* Ensure this is transparent to see the canvas below */
+}
+.home, .about, .services, .container1 {
+    background: transparent !important; /* Dark overlay with slight transparency */
+    /* Add this background to all your main content sections */
+    color: #ffffff;
 }
 
 .box-area {
@@ -909,7 +993,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("assets/bg.jpg") no-repeat center/cover;
+    background: none;
     z-index: -1; /* Image stays at the very back */
 }
 
@@ -963,6 +1047,135 @@ section {
 }
 
 
+.radial-bar:hover .path {
+    filter: drop-shadow(0 0 8px #0ef); /* Glows only the circular path */
+}
 
+.radial-bar:hover .percentage {
+    text-shadow: 0 0 10px #0ef; /* Brightens just the text */
+}
+.radial-bar, .radial-bar svg {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.radial-bar:hover .text {
+    color: #0ef;
+    text-shadow: 0 0 8px rgba(14, 239, 255, 0.7);
+}
+.radial-bar:hover {
+    transform: scale(1.05);
+}
+
+
+.professional-skill,
+.radial-bar,
+.skill-box {
+    overflow: visible; /* VERY IMPORTANT */
+}
+
+/* 1. Hide the icon by default (Desktop/Laptop view) */
+#menu-icon {
+    display: none; 
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 2. Show the icon only on screens smaller than 992px (Tablets & Phones) */
+@media (max-width: 992px) {
+    #menu-icon {
+        display: block;
+    }
+
+    /* Optional: Hide the standard navbar links if the menu is closed */
+    .navbar {
+        display: none; /* You will likely need JS to toggle this class later */
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    /* Make the floating header a full-width bar again on mobile */
+    .header {
+        top: 0;
+        left: 0;
+        transform: translateX(0);
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 15px 5%; /* Add some padding on the sides */
+        min-width: unset; /* Remove the laptop constraint */
+    }
+
+    /* Show the hamburger icon */
+    #menu-icon {
+    display: block;
+}
+
+    /* Hide the normal navigation links by default */
+    .navbar {
+        position: absolute;
+        top: 100%; /* Position right below the header */
+        right: -100%; /* Start off-screen to the right */
+        width: 100%;
+        height: auto; /* Expand vertically */
+        background: #081b29; /* Solid background for visibility */
+        flex-direction: column; /* Stack links vertically */
+        transition: all 0.5s ease;
+    }
+
+    /* Style the individual links for the mobile menu */
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+        padding: 15px 5%;
+        text-align: left;
+    }
+
+    /* When the 'active' class is added via JS, slide the menu into view */
+    .navbar.active {
+        right: 0;
+    }
+}
+#neural-net-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind your text */
+    background: #081b29; /* Your preferred dark background */
+    pointer-events: none;
+}
+/* Fix for all main section titles and subtitles */
+h1, h2, h3, h4, .sub-title, .heading1 {
+    color: #ffffff !important;
+}
+
+/* Ensure the 'span' elements (like the blue 'Me' in 'About Me') stay blue */
+h1 span, h2 span, h3 span, .sub-title span {
+    color: #0ef !important;
+}
+
+/* Ensure paragraph text is visible */
+p {
+    color: #ededed;
+}
+
+.home-content h3 .text {
+    color: #0ef;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.7); /* Subtle neon glow */
+    font-family: 'Courier New', Courier, monospace; /* Coding font style */
+    background: rgba(0, 238, 255, 0.1); /* Very faint highlight box */
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.home-content p span {
+    color: #0ef;
+    font-weight: 600;
+}
 
 
