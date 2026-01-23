@@ -1177,5 +1177,21 @@ p {
     color: #0ef;
     font-weight: 600;
 }
+#magnifier {
+    position: fixed;
+    width: 50px;  /* Size of the lens */
+    height: 50px;
+    border: 3px solid rgba(0, 238, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.3), inset 0 0 15px rgba(0,0,0,0.5);
+    pointer-events: none; /* Allows clicking through the lens */
+    z-index: 10000;
+    display: none; /* Hidden until mouse moves */
+    background-repeat: no-repeat;
+    overflow: hidden;
+    /* This creates the zoom effect by using the page itself as a background */
+    background-attachment: fixed; 
+}
+
 
 
