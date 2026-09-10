@@ -217,27 +217,7 @@ body {
                 0 0 200px cyan;
 }
 
-/* Profile image */
-.profile-img {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #a259ff; /* Purple border */
-    box-shadow: 0 0 40px #a259ff; /* Purple glow */
-    display: flex;
-    max-width: 50%;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0; /* Prevent shrinking */
-    margin-left: 50px; /* space between text & image */
-}
 
-.profile-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 
@@ -1195,3 +1175,673 @@ p {
 
 
 
+#smart-vehicle .layer h5 {
+    color: #0ef;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
+}
+
+#smart-vehicle .layer p {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+#smart-vehicle .layer i {
+    color: #0ef;
+}
+
+#predictive-maintenance .layer h5 {
+    color: #0ef;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
+}
+
+#predictive-maintenance .layer p {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+#predictive-maintenance .layer i {
+    color: #0ef;
+}
+#predictive-maintenance img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: #111;
+    border-radius: 8px;
+    display: block;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+
+    background-image: url("jelly.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 550px;
+    height: 550px;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0.18;
+
+    filter: drop-shadow(0 0 30px rgba(180, 80, 255, 0.6));
+
+    z-index: 1;
+    pointer-events: none;
+
+    animation: jellyfishPulse 4s ease-in-out infinite;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+
+    background-image: url("jelly.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 550px;
+    height: 550px;
+
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    opacity: 0.28;
+
+    filter: drop-shadow(0 0 35px rgba(180, 80, 255, 0.7));
+
+    z-index: 1;
+    pointer-events: none;
+
+    animation: jellyfishPulse 4s ease-in-out infinite;
+}
+
+@keyframes jellyfishPulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.22;
+    }
+
+    25% {
+        transform: translateY(-53%) scale(1.04);
+        opacity: 0.32;
+    }
+
+    50% {
+        transform: translateY(-50%) scale(0.96);
+        opacity: 0.24;
+    }
+
+    75% {
+        transform: translateY(-47%) scale(1.03);
+        opacity: 0.32;
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.22;
+    }
+}
+
+.about-text::before {
+    content: "";
+    position: absolute;
+
+    background-image: url("whale.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 500px;
+    height: 400px;
+
+    left: -80px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0.22;
+
+    filter: drop-shadow(0 0 30px rgba(180, 80, 255, 0.7));
+
+    z-index: -1;
+    pointer-events: none;
+
+    animation: whaleFloat 7s ease-in-out infinite;
+}
+
+@keyframes whaleFloat {
+    0% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+        opacity: 0.18;
+    }
+
+    50% {
+        transform: translateY(-53%) translateX(-12px) rotate(-1deg);
+        opacity: 0.27;
+    }
+
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+        opacity: 0.18;
+    }
+}
+#Skills {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keep the skills list on the left */
+.Technical-bars {
+    position: relative;
+    z-index: 2;
+    width: 60%;
+}
+
+#Skills {
+    position: relative;
+    overflow: hidden;
+}
+
+.Technical-bars {
+    position: relative;
+    z-index: 2;
+
+    /* Keep your original size */
+    width: 100%;
+}
+
+/* Robot far on the right */
+#Skills::after {
+    content: "";
+    position: absolute;
+
+    background-image: url("robot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 420px;
+    height: 420px;
+
+    /* Push robot toward the far right */
+    right: -200px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0.85;
+
+    filter: drop-shadow(0 0 30px rgba(180, 80, 255, 0.6));
+    /* Fade the bottom of the robot */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 65%,
+        rgba(0, 0, 0, 0.7) 78%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 65%,
+        rgba(0, 0, 0, 0.7) 78%,
+        transparent 100%
+    );
+
+    pointer-events: none;
+    z-index: 1;
+
+    animation: robotFloat 6s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    50% {
+        transform: translateY(-54%);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+.Technical-bars {
+    position: relative;
+    z-index: 2;
+}
+#Skills {
+    position: relative;
+    overflow: visible;
+}
+
+.contact {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-text {
+    position: relative;
+    z-index: 2;
+}
+
+/* Astronaut behind the contact text */
+.contact-text::before {
+    content: "";
+    position: absolute;
+
+    background-image: url("astro.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 500px;
+    height: 500px;
+
+    left: -100px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    /* clearer astronaut */
+    opacity: 0.38;
+
+    filter: drop-shadow(0 0 35px rgba(180, 80, 255, 0.8));
+
+    z-index: -1;
+    pointer-events: none;
+
+    animation: astronautFloat 7s ease-in-out infinite;
+}
+
+@keyframes astronautFloat {
+    0% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+        opacity: 0.20;
+    }
+
+    50% {
+        transform: translateY(-54%) translateX(10px) rotate(1deg);
+        opacity: 0.30;
+    }
+
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(0deg);
+        opacity: 0.20;
+    }
+}
+
+/* Phone */
+@media (max-width: 768px) {
+    .contact-text::before {
+        width: 280px;
+        height: 280px;
+
+        left: -80px;
+        top: 50%;
+
+        opacity: 0.15;
+    }
+}
+
+/* Education cards */
+.services-list > div {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fluid image behind each education card */
+.services-list > div::before {
+    content: "";
+    position: absolute;
+
+    background-image: url("fluide.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 280px;
+    height: 280px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0.22;
+
+    filter: drop-shadow(0 0 25px rgba(180, 80, 255, 0.7));
+
+    z-index: 0;
+    pointer-events: none;
+
+    animation: fluidFloat 6s ease-in-out infinite;
+}
+
+/* Keep card content above the image */
+.services-list > div > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Slight movement */
+@keyframes fluidFloat {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.18;
+    }
+
+    50% {
+        transform: translate(-50%, -53%) scale(1.05);
+        opacity: 0.27;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.18;
+    }
+}
+
+
+.profile-img {
+    position: relative;
+    width: 400px;
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Morphing blob */
+.profile-img::before {
+    content: "";
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    background: linear-gradient(
+        135deg,
+        #6f00ff,
+        #9b4dff,
+        #c77dff
+    );
+
+    /* Irregular organic shape */
+    border-radius: 47% 53% 63% 37% / 57% 43% 57% 43%;
+
+    z-index: 0;
+    pointer-events: none;
+
+    animation: morphBlob 8s ease-in-out infinite;
+}
+/* Profile image */
+.profile-img img {
+    position: relative;
+
+    width: 330px;
+    height: 330px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    z-index: 1;
+
+    border: 4px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 25px rgba(155, 77, 255, 0.6),
+        0 0 60px rgba(155, 77, 255, 0.35);
+}
+
+/* Morphing animation */
+@keyframes morphBlob {
+
+    0% {
+        border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        border-radius: 60% 40% 45% 55% / 40% 60% 55% 45%;
+        transform: rotate(8deg) scale(1.04);
+    }
+
+    50% {
+        border-radius: 35% 65% 55% 45% / 60% 45% 40% 60%;
+        transform: rotate(15deg) scale(0.97);
+    }
+
+    75% {
+        border-radius: 55% 45% 65% 35% / 45% 55% 50% 60%;
+        transform: rotate(8deg) scale(1.04);
+    }
+
+    100% {
+        border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+
+/* About image container */
+.about-img {
+    position: relative;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+    overflow: visible;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+/* Aqua morphing blob */
+.about-img::before {
+    content: "";
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    background: linear-gradient(
+        135deg,
+        #00ffff,
+        #00d9ff,
+        #00a6c7
+    );
+
+    border-radius: 47% 53% 63% 37% / 57% 43% 57% 43%;
+
+    filter: blur(8px);
+
+    z-index: 0;
+    pointer-events: none;
+
+    animation: aquaBlob 8s ease-in-out infinite;
+}
+
+/* Image */
+.about-img img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Aqua morphing animation */
+@keyframes aquaBlob {
+
+    0% {
+        border-radius: 47% 53% 63% 37% / 57% 43% 57% 43%;
+        transform: rotate(0deg) scale(1);
+    }
+
+    20% {
+        border-radius: 63% 37% 48% 52% / 43% 57% 42% 58%;
+        transform: rotate(6deg) scale(1.04);
+    }
+
+    40% {
+        border-radius: 38% 62% 55% 45% / 62% 38% 58% 42%;
+        transform: rotate(12deg) scale(0.98);
+    }
+
+    60% {
+        border-radius: 55% 45% 38% 62% / 45% 55% 63% 37%;
+        transform: rotate(7deg) scale(1.05);
+    }
+
+    80% {
+        border-radius: 42% 58% 62% 38% / 58% 42% 47% 53%;
+        transform: rotate(3deg) scale(1.01);
+    }
+
+    100% {
+        border-radius: 47% 53% 63% 37% / 57% 43% 57% 43%;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* =========================
+   PORTFOLIO PROJECT IMAGES
+   ========================= */
+
+.portfolio-content .row {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* Project image */
+.portfolio-content .row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    transition: transform 0.5s ease, filter 0.5s ease;
+
+    /* Purple glow */
+    box-shadow: 0 0 25px rgba(162, 89, 255, 0.55);
+
+    filter: brightness(0.9);
+}
+
+/* Glowing purple border effect */
+.portfolio-content .row::before {
+    content: "";
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 20px;
+
+    border: 2px solid rgba(162, 89, 255, 0.55);
+
+    box-shadow:
+        0 0 15px rgba(162, 89, 255, 0.45),
+        0 0 35px rgba(162, 89, 255, 0.25);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+/* Hover effect */
+.portfolio-content .row:hover img {
+    transform: scale(1.05);
+
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 0 20px rgba(162, 89, 255, 0.7),
+        0 0 45px rgba(162, 89, 255, 0.45);
+}
+
+.portfolio-content .row img {
+    border-radius: 35px 15px 40px 20px;
+}
+
+/* =========================
+   FUTURISTIC PURPLE STARS
+   ========================= */
+
+body::before {
+    content: "✦  •  ✧  •  ✦  •  ✧  •  ✦  •  ✧  •  ✦✦  •  ✧  •  ✦  •  ✧  •  ✦  •  ✧  •  ✦✦  •  ✧  •  ✦  •  ✧  •  ✦  •  ✧  •  ✦";
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    color: rgba(180, 80, 255, 0.75);
+
+    font-size: 12px;
+    letter-spacing: 55px;
+    line-height: 120px;
+
+    opacity: 0.35;
+
+    z-index: 0;
+
+    animation: starsTwinkle 6s ease-in-out infinite;
+}
+
+@keyframes starsTwinkle {
+
+    0% {
+        opacity: 0.15;
+    }
+
+    25% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.15;
+    }
+
+    75% {
+        opacity: 0.55;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
+}

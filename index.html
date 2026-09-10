@@ -78,18 +78,18 @@
         <img src="me1.jpg">
     </div>
 
-    <div class="about-text">
-        <h2>About<span>Me</span></h2>
-        <h4>AI Engineering student</h4>
-        <p>I am an Engineering student specializing in AI and Robotics, with a Bachelor’s degree in AI & Data Science. I work with Python, TensorFlow, PyTorch, Scikit-learn, and OpenCV to design and train machine learning models that solve real problems.
+        <div class="about-text">
+            <h2>About<span>Me</span></h2>
+            <h4>AI Engineering student</h4>
+            <p>I am an Engineering student specializing in AI and Robotics, with a Bachelor’s degree in AI & Data Science. I work with Python, TensorFlow, PyTorch, Scikit-learn, and OpenCV to design and train machine learning models that solve real problems.
 
-I focus on creating AI solutions with real value, from automation to smarter decision-making. I enjoy turning data into insights and transforming ideas into practical, impactful systems.
+    I focus on creating AI solutions with real value, from automation to smarter decision-making. I enjoy turning data into insights and transforming ideas into practical, impactful systems.
 
-Driven by continuous learning, my goal is to build a strong career in Data Science and AI Engineering, contributing to innovative, data-driven solutions that make a positive impact.</p>
+    Driven by continuous learning, my goal is to build a strong career in Data Science and AI Engineering, contributing to innovative, data-driven solutions that make a positive impact.</p>
 
 
-        <a href="#" class="btn-box">More About Me</a>
-    </div>
+            <a href="#" class="btn-box">More About Me</a>
+        </div>
 </section>
 
 <section>
@@ -275,46 +275,80 @@ Driven by continuous learning, my goal is to build a strong career in Data Scien
 
 </div>
 </section>
-<section>
-    <div id="portfolio" class="project">
+<section id="portfolio">
+    <div class="row" id="smart-vehicle">
+
         <div class="main-text">
             <h2 class="project">Latest<span>Project</span></h2>
         </div>
 
         <div class="portfolio-content">
+
+            <!-- Project 1: Smart Autonomous Vehicle -->
             <div class="row">
-                <img src="bg1.jpg" alt="">
+                <img src="piRob.jpg" alt="Raspberry Pi 5 and ESP32 autonomous vehicle">
+
                 <div class="layer">
-                    <h5>to fill later</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                       am necessitatibus. Possimus officia voluptatum at illu</p>
-                    <a href="#">
-                        <i class="bx bx-link-external" style="color:"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <img src="bg1.jpg" alt="">
-                <div class="layer">
-                    <h5>to fill later</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                       am necessitatibus. Possimus officia voluptatum at illu</p>
+                    <h5>Smart Autonomous Vehicle</h5>
+
+                    <p>
+                        Autonomous vehicle built using a Raspberry Pi 5 and ESP32 in a
+                        master-slave architecture. The ESP32 collects data from the
+                        gyroscope and ultrasonic sensors, sends it to the Raspberry Pi 5,
+                        and controls the motors. The Raspberry Pi 5 processes camera data
+                        using YOLOv8 Nano, combines it with sensor data to make navigation
+                        decisions, and sends commands back to the ESP32 via MQTT.
+                        ROS2 is used for environment mapping and robotic navigation.
+                    </p>
+
                     <a href="#">
                         <i class="bx bx-link-external" style="color:aqua"></i>
                     </a>
                 </div>
             </div>
-            <div class="row">
-                <img src="bg1.jpg" alt="">
+
+
+            <!-- Project 2: Aircraft Engine Predictive Maintenance -->
+            <div class="row" id="predictive-maintenance">
+                <img src="motors.jpg" alt="Aircraft Engine Predictive Maintenance">
+
                 <div class="layer">
-                    <h5>to fill later</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                       am necessitatibus. Possimus officia voluptatum at illu</p>
+                    <h5>Aircraft Engine Predictive Maintenance</h5>
+
+                    <p>
+                        Predictive maintenance system developed using NASA's C-MAPSS
+                        aircraft engine dataset. Multiple approaches were implemented,
+                        including LSTM and RNN models, 1D CNN for binary and multiclass
+                        failure prediction, similarity-based RUL prediction, and
+                        exponential degradation modeling for Remaining Useful Life
+                        estimation.
+                    </p>
+
                     <a href="#">
-                        <i class="bx bx-link-external" style="color:"></i>
+                        <i class="bx bx-link-external"></i>
                     </a>
                 </div>
             </div>
+
+
+            <!-- Project 3 -->
+            <div class="row">
+                <img src="bg1.jpg" alt="Project">
+
+                <div class="layer">
+                    <h5>To Fill Later</h5>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Possimus officia voluptatum at illum.
+                    </p>
+
+                    <a href="#">
+                        <i class="bx bx-link-external"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
